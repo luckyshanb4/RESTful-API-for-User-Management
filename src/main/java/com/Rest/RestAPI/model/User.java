@@ -17,19 +17,19 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name="first_name")
+	@Column(name="first_name",nullable = false)
 	private String firstName;
 	
-	@Column(name="last_name")
+	@Column(name="last_name",nullable = false)
 	private String lastName;
 	
-	@Column(name="username")
+	@Column(name="username",nullable = false)
 	private String username;
 	
-	@Column(name="password")
+	@Column(name="password",nullable = false)
 	private String password;
 	
-	@Column(name="email")
+	@Column(name="email",nullable = false)
 	private String email;
 
 	public long getId() {
@@ -90,6 +90,8 @@ public class User {
 		this.email = email;
 	}
 	
-	
+	public User() {
+		
+	}
 
 }
