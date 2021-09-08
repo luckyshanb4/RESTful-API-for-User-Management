@@ -1,4 +1,4 @@
-package com.Rest.RestAPI.controller;
+package com.rest.api.controller;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Rest.RestAPI.model.User;
-import com.Rest.RestAPI.service.UserService;
+import com.rest.api.model.User;
+import com.rest.api.service.UserService;
 
 
 
@@ -24,13 +24,11 @@ public class UserController {
 	
 	private UserService userService;
 
-	public UserController(UserService userService) {
-		super();
+	public UserController(UserService userService) {	
 		this.userService = userService;
 	}
 	
 	
-	//build create user REST API
 	@PostMapping
 	public ResponseEntity<User> saveUser(@RequestBody User user){
 		return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.CREATED);
@@ -38,33 +36,27 @@ public class UserController {
 	}
 	
 	
-	//build get all users REST API
 	@GetMapping
 	public List<User> getAllUsers(){
 		return userService.getAllUsers();
 	}
 	
 	
-	//build get user by id REST API
-	//http://localhost:8080/api/employees/1
 	@GetMapping("{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("id") long id){
 		return new ResponseEntity<User>(userService.getUserById(id), HttpStatus.OK);
 	}
 	
-	//build update user REST API
-	//http://localhost:8080/api/employees/1
+
 	@PutMapping("{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") long id,@RequestBody User user){
 		return new ResponseEntity<User>(userService.updateUser(user, id), HttpStatus.OK);
 	}
 	
-	//delete user REST API
-	//http://localhost:8080/api/employees/1
+
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable("id") long id){
 		
-		//delete user from db
 		userService.deleteUser(id);
 		
 		return new ResponseEntity<String>("User Deleted Successfully!", HttpStatus.OK);

@@ -1,4 +1,4 @@
-package com.Rest.RestAPI.model;
+package com.rest.api.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
+@Data 
 @Entity
 @Table(name="users")
 public class User {
@@ -81,7 +81,6 @@ public class User {
 	}
 
 	public User(long id, String firstName, String lastName, String username, String password, String email) {
-		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

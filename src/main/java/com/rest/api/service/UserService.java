@@ -1,8 +1,8 @@
-package com.Rest.RestAPI.service;
+package com.rest.api.service;
 
 import java.util.List;
 
-import com.Rest.RestAPI.model.User;
+import com.rest.api.model.User;
 
 
 public interface UserService {
